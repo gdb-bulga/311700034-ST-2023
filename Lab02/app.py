@@ -34,6 +34,8 @@ class Application:
 	def select_next_person(self):
 		print('--select next person--')
 		if len(self.people) == len(self.selected):
+			print('people:', self.people)
+			print('selected:', self.selected)
 			print('all selected')
 			return None
 		person = self.get_random_person()
