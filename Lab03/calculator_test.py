@@ -2,7 +2,6 @@ import unittest
 import math
 from calculator import Calculator
 
-
 class CalculatorTest(unittest.TestCase):
 
     def test_add(self):
@@ -22,7 +21,7 @@ class CalculatorTest(unittest.TestCase):
             Calculator.divide(1, 0)
 
     def test_sqrt(self):
-        test_cases = [ 0, 1, 4, 2.25, 999999999]
+        test_cases = [0, 1, 4, 2.25, 999999999]
         for x in test_cases:
             with self.subTest(x=x):
                 self.assertEqual(Calculator.sqrt(x), math.sqrt(x))
@@ -30,11 +29,12 @@ class CalculatorTest(unittest.TestCase):
             Calculator.sqrt(-1)
 
     def test_exp(self):
-        test_cases = [ 0, 1, 2, -1, 10]
+        test_cases = [0, 1, 2, -1, 10]
         for x in test_cases:
             with self.subTest(x=x):
                 self.assertEqual(Calculator.exp(x), math.exp(x))
         with self.assertRaises(TypeError):
             Calculator.exp('2')
+            
 if __name__ == '__main__':
     unittest.main()
