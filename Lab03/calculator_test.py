@@ -39,3 +39,7 @@ class CalculatorTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    CalculatorTest.test_add()
+    CalculatorTest.test_divide()
+    CalculatorTest.test_exp()
+    CalculatorTest.test_sqrt()
