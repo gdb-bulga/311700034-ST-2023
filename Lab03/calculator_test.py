@@ -2,6 +2,7 @@ import unittest
 import math
 from calculator import Calculator
 
+
 class CalculatorTest(unittest.TestCase):
 
     def test_add(self):
@@ -35,6 +36,7 @@ class CalculatorTest(unittest.TestCase):
                 self.assertEqual(Calculator.exp(x), math.exp(x))
         with self.assertRaises(TypeError):
             Calculator.exp('2')
-            
+
+
 if __name__ == '__main__':
     unittest.main()
