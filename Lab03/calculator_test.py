@@ -36,9 +36,5 @@ class CalculatorTest(unittest.TestCase):
                 self.assertEqual(Calculator.exp(x), math.exp(x))
         with self.assertRaises(TypeError):
             Calculator.exp('2')
-    test_add
-    test_divide
-    test_sqrt
-    test_exp
 if __name__ == '__main__':
     unittest.main()
