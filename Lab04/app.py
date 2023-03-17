@@ -22,7 +22,7 @@ wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'a[href = "https://ww
 wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div.eael-tabs-content ul[class="su-posts su-posts-list-loop"] li')))[0].click()
 
 print('here')
-print(wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'header h1'))).get_attribute('innerHTML'))
+#print(wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'header h1'))).get_attribute('innerHTML'))
 p = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div[class = "entry-content clr"] p')))
 for i in p:
     print(i.get_attribute('innerHTML'))
