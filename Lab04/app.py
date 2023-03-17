@@ -19,11 +19,10 @@ wait = WebDriverWait(driver, 60)
 driver.get("https://www.nycu.edu.tw/")
 
 wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'a[href = "https://www.nycu.edu.tw/news-network/"]'))).click()
-print(wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div.eael-tabs-content ul[class="su-posts su-posts-list-loop"] li a')))[0].get_attribute('innerHTML'))
 wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div.eael-tabs-content ul[class="su-posts su-posts-list-loop"] li')))[0].click()
 
-print(wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'header h1'))).get_attribute('innerHTML'))
-p = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div[class = "entry-content clr"] p')))
+print(wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'div[id="content-wrap"] header h1'))).get_attribute('innerHTML'))
+p = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div[id="content-wrap"] div[class = "entry-content clr"] p')))
 for i in p:
     print(i.get_attribute('innerHTML'))
 
