@@ -2,9 +2,15 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--window-size=1920,1080')
+options.add_argument('--disable-gpu')
 
 # 1
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 driver.get("https://www.nycu.edu.tw/")
 
 driver.find_element(By.CSS_SELECTOR,'a[href = "https://www.nycu.edu.tw/news-network/"]').click()
