@@ -12,7 +12,7 @@ options.add_argument('--window-size=1920,1080')
 options.add_argument('--disable-gpu')
 
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
-wait = WebDriverWait(driver, 10)
+wait = WebDriverWait(driver, 20)
 
 # 1
 driver.get("https://www.nycu.edu.tw/")
