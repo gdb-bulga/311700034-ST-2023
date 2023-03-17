@@ -12,15 +12,16 @@ options.add_argument('--window-size=1920,1080')
 options.add_argument('--disable-gpu')
 
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+#driver = webdriver.Chrome(ChromeDriverManager().install())
 wait = WebDriverWait(driver, 20)
 
 # 1
 driver.get("https://www.nycu.edu.tw/")
 
-wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,'a[href = "https://www.nycu.edu.tw/news-network/"]'))).click()
+wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'a[href = "https://www.nycu.edu.tw/news-network/"]'))).click()
 wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div.eael-tabs-content ul li')))[0].click()
 
-print(wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,'header h1'))).get_attribute('innerHTML'))
+print(wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'header h1'))).get_attribute('innerHTML'))
 p = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div[class = "entry-content clr"] p')))
 for i in p:
     print(i.get_attribute('innerHTML'))
@@ -28,7 +29,7 @@ for i in p:
 # 2
 driver.switch_to.new_window('tab')
 driver.get("https://www.google.com.tw")
-wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,'div input[class = "gLFyf"]'))).send_keys('311700034', Keys.RETURN)  
+wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'div input[class = "gLFyf"]'))).send_keys('311700034', Keys.RETURN)  
 
 print(wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div[class = "v7W49e"] h3[class = "LC20lb MBeuO DKV0Md"]')))[1].get_attribute('innerHTML'))
 
