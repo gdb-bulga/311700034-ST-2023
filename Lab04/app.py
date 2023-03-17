@@ -13,7 +13,7 @@ options.add_argument('--disable-gpu')
 
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 #driver = webdriver.Chrome(ChromeDriverManager().install())
-wait = WebDriverWait(driver, 20)
+wait = WebDriverWait(driver, 60)
 
 # 1
 driver.get("https://www.nycu.edu.tw/")
