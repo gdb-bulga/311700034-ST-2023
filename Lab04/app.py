@@ -17,8 +17,8 @@ wait = WebDriverWait(driver, 10)
 # 1
 driver.get("https://www.nycu.edu.tw/")
 
-driver.find_element(By.CSS_SELECTOR,'a[href = "https://www.nycu.edu.tw/news-network/"]').click()
-driver.find_elements(By.CSS_SELECTOR,'div.eael-tabs-content ul li')[0].click()
+wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,'a[href = "https://www.nycu.edu.tw/news-network/"]'))).click()
+wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div.eael-tabs-content ul li')))[0].click()
 
 print(wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,'header h1'))).get_attribute('innerHTML'))
 p = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div[class = "entry-content clr"] p')))
@@ -28,6 +28,8 @@ for i in p:
 # 2
 driver.switch_to.new_window('tab')
 driver.get("https://www.google.com.tw")
-driver.find_element(By.CSS_SELECTOR,'div input[class = "gLFyf"]').send_keys('311700034', Keys.RETURN)  
+wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR,'div input[class = "gLFyf"]'))).send_keys('311700034', Keys.RETURN)  
 
 print(wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div[class = "v7W49e"] h3[class = "LC20lb MBeuO DKV0Md"]')))[1].get_attribute('innerHTML'))
+
+driver.quit()
