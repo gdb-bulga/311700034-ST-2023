@@ -62,6 +62,6 @@ Math      |         |         |         |         \n\
         with patch.object(CSS, 'check_course_exist', return_value=True):
             # Add more test cases here to achieve 100% code coverage
             pass
-
+    
 if __name__ == '__main__':
     unittest.main()
