@@ -29,7 +29,7 @@ for i in p:
 # 2
 driver.switch_to.new_window('tab')
 driver.get("https://www.google.com.tw")
-wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'div input[class = "gLFyf"]'))).send_keys('311700034', Keys.RETURN)  
+wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'div textarea'))).send_keys('311700034', Keys.RETURN)  
 
 print(wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,'div[class = "v7W49e"] h3[class = "LC20lb MBeuO DKV0Md"]')))[1].get_attribute('innerHTML'))
 
