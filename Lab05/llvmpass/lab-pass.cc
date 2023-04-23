@@ -73,19 +73,23 @@ bool LabPass::runOnModule(Module &M)
 
         // const char* name = functionName;
         Constant *name = BuilderStart.CreateGlobalStringPtr(F.getName());
+        // int funcDepth = depth;
+        Value *funcDepth = BuilderStart.CreateLoad(type_int, depth);
         // printf("%*s%s: %p\n", depth, "", name, functionPtr);
-        std::vector<llvm::Value *> args{format, depth, emptyStr, name, &F};
+        std::vector<llvm::Value *> args{format, funcDepth, emptyStr, name, &F};
         BuilderStart.CreateCall(callee_printf, args);
-        // depth += 1
-        BuilderStart.CreateStore(BuilderStart.CreateAdd(depth, one), depth);
+        // depth = funcDepth + 1;
+        BuilderStart.CreateStore(BuilderStart.CreateAdd(funcDepth, one), depth);
 
         // 獲取該函數結尾的指令創建器
         BasicBlock &Bend = F.back();
         Instruction &Iend = Bend.back();
         IRBuilder<> BuilderEnd(&Iend);
 
-        // depth += -1
-        BuilderEnd.CreateStore(BuilderEnd.CreateAdd(depth, negOne), depth);
+        // funcDepth = depth;
+        funcDepth = BuilderEnd.CreateLoad(type_int, depth);
+        // depth = funcDepth + (-1);
+        BuilderEnd.CreateStore(BuilderEnd.CreateAdd(funcDepth, negOne), depth);
     }
 
     return true;
