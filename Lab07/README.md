@@ -1,7 +1,7 @@
 # NYCU Software Testing 2023 Lab 7
 
 ## PoC
-[test.bmp](https://)
+[test.bmp](https://github.com/gdb-bulga/311700034-ST-2023/blob/main/Lab07/test.bmp)
 
 ## commands
 ```bash
