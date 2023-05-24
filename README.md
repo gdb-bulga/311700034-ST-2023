@@ -14,3 +14,5 @@
 ![example workflow](https://github.com/gdb-bulga/311700034-ST-2023/actions/workflows/Midterm-CI.yml/badge.svg)
 
 ![example workflow](https://github.com/gdb-bulga/311700034-ST-2023/actions/workflows/Lab05-CI.yml/badge.svg)
+
+![example workflow](https://github.com/gdb-bulga/311700034-ST-2023/actions/workflows/Lab08-CI.yml/badge.svg)
