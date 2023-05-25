@@ -13,13 +13,14 @@ def main():
     state = proj.factory.blank_state(addr=main_addr)
     simgr = proj.factory.simulation_manager(state)
     simgr.explore(find=find_addr, avoid=avoid_addr)
+    ofile = open('solve_input', 'w')
 
     if simgr.found:
         find_result = simgr.found[0].posix.dumps(sys.stdin.fileno())
 
         for i in range(0, VARIABLE_CNT):
             data = find_result[i * CHUNK_SIZE : (i+1) * CHUNK_SIZE]
-            print(int(data))
+            print(int(data), file=ofile)
 
     else:
         print('Failed')
