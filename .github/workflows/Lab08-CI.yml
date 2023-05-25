@@ -18,12 +18,16 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y clang-15 llvm-15
-    - name: Run lab-pass
+        pip install angr
+    - name: Run make
       run: |
         cd Lab08/src
         make
         ./newprog
+    - name: Run solve.py
+      run: |
+        cd Lab08
+        python3 ./solve.py
     - name: Verify result
       run: |
         cd Lab08
